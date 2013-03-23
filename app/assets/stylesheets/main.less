@@ -1,0 +1,165 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+/*
+Scheme ID: 3k31Lw0w0w0w0
+
+
+Primary Color:
+				
+028E9B	1E6D74	015C65	35C0CD	5EC4CD
+Secondary Color A:
+				
+FFA100	BF8A30	A66900	FFB840	FFCB73
+Secondary Color B:
+				
+FF3500	BF4E30	A62300	FF6840	FF9073
+
+Megumi's Scheme 
+#026447 - green
+#4E8EB2 - light blue
+#AD7C2F - light brown 
+#AAFFEE - light cyan 
+
+*/
+
+
+@c1: #4E8EB2; /* light blue */ 
+@c2: #AD7C2F; /* light brown */
+@c3: #026447; /* green */ 
+@c4: #97E0B9; /* light cyan */  
+@white: #FFFFFF; 
+@black: #000000; 
+@btn-clr: lighten(@c4, 10%);
+
+@textbodycolor: #bada55;
+
+body{
+background-color: @white  !important;
+color: @black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: @c3; 
+}
+
+.navbar{
+    border-bottom: 10px solid @c3;   
+}
+
+
+.hero-unit {
+padding: 60px;
+margin-bottom: 30px;
+font-size: 18px;
+font-weight: 200;
+line-height: 30px;
+color: @white;
+background-color: @c1;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+.navbar-inner
+{
+  /* wood texture credit: http://www.flickr.com/photos/bittbox */ 
+  background-image: url("../img/wood_vert.jpg") !important;
+  background-color: @c2  !important;
+
+}
+
+.navbar-inverse .nav > li > a {
+color: @white; 
+font-size: 20px; 
+text-shadow: 1px -1px 1px lighten(@black, 30%);
+}
+
+.navbar-inverse .nav > li > a:hover, a:active {
+color: lighten(@c4, 15%); 
+}
+
+
+.btn {
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  *background-color: #e6e6e6;
+  background-image: -moz-linear-gradient(top, #ffffff, @btn-clr);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(@btn-clr));
+  background-image: -webkit-linear-gradient(top, #ffffff, @btn-clr);
+  background-image: -o-linear-gradient(top, #ffffff, @btn-clr);
+  background-image: linear-gradient(to bottom, #ffffff, @btn-clr);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  *border: 0;
+  border-color: @btn-clr @btn-clr #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  *zoom: 1;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  color: #333333;
+  background-color: @btn-clr;
+  *background-color: #d9d9d9;
+}
+
+
+/***************** End of Megumi's changes ******************/
+
+
+
+.navbar-inverse .brand {
+color: #111111;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: @textbodycolor;
+  text-decoration: none;
+  background-color: #3E7EA2;
+  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-repeat: repeat-x;
+  outline: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+/*nav {
+background-color: @c2;
+
+}
+*/
+
+/*.navbar-inner {
+  background-color: #aaa;  background color will be black for all browsers 
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+
+}*/
+
+
+
