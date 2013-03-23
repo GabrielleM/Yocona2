@@ -54,3 +54,4 @@ gem "devise_invitable", ">= 1.1.5"
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.1.0"
+gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
