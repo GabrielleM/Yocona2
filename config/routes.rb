@@ -1,5 +1,7 @@
 Yocona2::Application.routes.draw do
+  resources :trips
+
   devise_for :users
-  root :to => 'welcome#index' 
+  root :to => 'trips#landing' 
 
 end

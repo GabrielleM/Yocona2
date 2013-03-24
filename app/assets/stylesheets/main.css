@@ -23,7 +23,9 @@ Megumi's Scheme
 
 */
 /* light blue *//* light brown */
-/* green *//* light cyan */body {
+/* green *//* light cyan */
+
+body {
   background-color: #ffffff !important;
   color: #000000;
 }
@@ -41,6 +43,7 @@ h6 {
 .hero-unit {
   padding: 60px;
   margin-bottom: 30px;
+  margin-top: 50px; 
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
@@ -52,7 +55,7 @@ h6 {
 }
 .navbar-inner {
   /* wood texture credit: http://www.flickr.com/photos/bittbox */
-  background-image: url("../img/wood_vert.jpg") !important;
+  background-image: url("/assets/wood_vert.jpg") !important;
   background-color: #ad7c2f !important;
 }
 .navbar-inverse .nav > li > a {
