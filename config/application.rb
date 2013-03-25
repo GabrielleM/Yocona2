@@ -15,10 +15,6 @@ module Yocona2
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       g.test_framework :rspec
-      
-      
-      
-      
       g.view_specs false
       g.helper_specs false
     end
@@ -31,8 +27,7 @@ module Yocona2
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/lib)
 
-    #Added to try to remove precompile error 3/24 MH
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = false #Added to try to remove precompile error 3/24 MH - also changed production.rb
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
