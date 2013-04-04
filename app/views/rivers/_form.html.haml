@@ -1,7 +1,64 @@
-= simple_form_for(@river) do |f|
-  = f.error_notification
+= label :river, :name, 'River Name'
+= text_field :river, :name
 
-  .form-inputs
+= label :river, :length, 'Length'
+= text_field :river, :length
 
-  .form-actions
-    = f.button :submit
+= label :river, :difficulty, 'Difficulty (at ideal flow)'
+= select :river, :difficulty, ['Beginner', 'Intermediate', 'Advanced', 'EXTREME']
+
+= label :river, :flow, 'Ideal Flow'
+= text_field :river, :flow
+
+= label :river, :hazards, 'Hazards'
+= text_field :river, :hazards
+
+= label :river, :highlights, 'Highlights'
+= text_field :river, :highlights
+
+= label :river, :nearest_town, 'Nearest Town'
+= text_field :river, :nearest_town
+
+= label :river, :description, 'River Description'
+= text_area :river, :description, :size => "24x6"
+
+= label :river, :link, 'Link To CalCreeks'
+= text_field :river, :link
+
+= label :river, :ed_notes, 'Environmental Ed Notes'
+= text_area :river, :ed_notes, :size => "24x6"
+
+= label :river, :info, 'On-River Info / Special Concerns'
+= text_area :river, :info, :size => "24x6"
+
+= label :river, :directions, 'Shuttle Directions From Landmark/Freeway Exit'
+= text_area :river, :directions, :size => "24x6"
+
+= label :river, :camping, 'Camping Locations'
+= text_area :river, :camping, :size => "24x6"
+
+= label :river, :contacts, 'Local Contacts'
+= text_area :river, :contacts, :size => "24x6"
+
+= label :river, :emergency_plan, 'Emergency Management Plan'
+= text_area :river, :emergency_plan, :size => "24x6"
+
+= label :river, :grocery, 'Nearest Grocery Store'
+= text_area :river, :grocery, :size => "24x6"
+
+/ Hidden Trips Array? 
+= hidden :river, :trips 
+
+/ Distance from Home: 
+/ Where will user enter location? This is tricky because this will differ for everyone who views the river info, and depends on trip. Should this go into the Trip model & DB instead? Probably. 
+/ = label :river, :distance, 'Distance From Home'
+/ = text_field :river, :distance
+
+/ PaperClip Gem Code below
+/ = label :trip, :picture, 'Upload A Picture'
+/ = file_field :trip, :picture
+
+/ Also UPLOAD MAP PDF through PaperClip
+
+/ id: trip_id, name: trip[id] -- how the above form :attributes will be expanded out in code 
+

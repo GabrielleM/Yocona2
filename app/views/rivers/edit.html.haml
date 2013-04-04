@@ -1,7 +1,8 @@
-%h1 Editing river
+%h1 Update River Information
 
+= form_tag rivers_path(@river), :method => :put do
 = render 'form'
+= submit_tag 'Update River Information'
 
-= link_to 'Show', @river
-\|
 = link_to 'Back', rivers_path
+
