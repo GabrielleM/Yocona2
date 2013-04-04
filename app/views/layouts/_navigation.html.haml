@@ -5,21 +5,20 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.brand{:href => "#"}
+      %a.brand{:href => "/"}
         yocona:
         %br
         %span{:style => "font-size: small;"} river adventures
       .nav-collapse.collapse
         %ul.nav
           %li
-            %a{:href => "#"} Search
+            = link_to 'Search', search_path
           %li
-            %a{:href => "#"} Browse
-          / ADD BACK IN AS SOON AS MODEL IS SET UP!!!
-          / %li
-          /   = link_to 'Create Trip', new_trip_path
-          / %li
-          /   = link_to 'Create River', new_river_path
+            = link_to 'Browse', browse_path
+          %li
+            = link_to 'Create Trip', new_trip_path
+          %li
+            = link_to 'Create River', new_river_path
 
           / %li.dropdown
           /   %a.dropdown2

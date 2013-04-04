@@ -1,7 +1,41 @@
-= simple_form_for(@trip) do |f|
-  = f.error_notification
+= label :trip, :river, 'River'
+= text_field :trip, :river
 
-  .form-inputs
+= label :trip, :leader, 'Trip Leader'
+= text_field :trip, :leader
 
-  .form-actions
-    = f.button :submit
+= label :trip, :partner, 'Agency Partner'
+= text_field :trip, :partner
+
+= label :trip, :contact, 'Agency Partner Contact'
+= text_field :trip, :contact
+
+= label :trip, :start_date, 'Start Date'
+= date_select :trip, :start_date
+
+= label :trip, :duration, 'Duration (Days)'
+= select :trip, :duration, [1, 2]
+
+= label :trip, :flow, 'River Flow'
+= text_field :trip, :flow
+
+= label :trip, :participants, 'Number of Participants'
+= text_field :trip, :participants
+
+= label :trip, :guides, 'Number of Guides'
+= text_field :trip, :guides
+
+= label :trip, :report_link, 'Link To Trip Report'
+= text_field :trip, :report_link
+
+= label :trip, :summary, 'Trip Report Summary'
+= text_area :trip, :summary, :size => "24x6"
+
+/ PaperClip Gem Code below
+/ = label :trip, :picture, 'Upload A Picture'
+/ = file_field :trip, :picture
+
+/ id: trip_id, name: trip[id] -- how the above form :attributes will be expanded out in code 
+
+
+

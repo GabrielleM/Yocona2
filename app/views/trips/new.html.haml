@@ -1,5 +1,7 @@
-%h1 New trip
+%h1 Create New Trip
 
+= form_tag trips_path do
 = render 'form'
+= submit_tag 'Create New Trip'
 
 = link_to 'Back', trips_path

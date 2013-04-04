@@ -40,7 +40,9 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(params[:trip])
+    @trip = Trip.create!(params[:trip])
+    flash[:notice] = "Your trip was successfully created."
+    redirect_to "/"
 
     respond_to do |format|
       if @trip.save
@@ -81,3 +83,11 @@ class TripsController < ApplicationController
     end
   end
 end
+
+def search
+
+end 
+
+def browse
+
+end 
