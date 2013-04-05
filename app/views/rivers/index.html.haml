@@ -1,16 +1,13 @@
 %h1 Listing rivers
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @rivers.each do |river|
-    %tr
-      %td= link_to 'Show', river
-      %td= link_to 'Edit', edit_river_path(river)
-      %td= link_to 'Destroy', river, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%table#rivers_index_table
+  %thead
+  %tbody
+    - @rivers.each do |river|
+      %tr
+        %td= river.name
+        %td= link_to 'Show', river
+        %td= link_to 'Edit', edit_river_path(river)
+        %td= link_to 'Destroy', river, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

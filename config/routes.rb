@@ -1,6 +1,6 @@
 Yocona2::Application.routes.draw do
   # resources :trips, :rivers
-
+resources :alltrips, :only => [:index]
   resources :rivers do
   	resources :trips 
   end

@@ -1,6 +1,32 @@
 %p#notice= notice
 
+%h1 River Details
 
-= link_to 'Edit', edit_river_path(@river)
+%br 
+
+%table#rivers_show_table  
+      
+  %tbody
+    %tr
+      %th River Name
+      %td= @river.name
+    %tr
+      %th Length
+      %td= @river.length
+    %tr
+      %th Difficulty
+      %td= @river.difficulty
+    %tr
+      %th River Description
+      %td= @river.description
+    %tr
+      %th Highlights
+      %td= @river.highlights
+%br
+%br
+
+= link_to 'Edit', edit_river_path(@river.id) 
+\|
+= link_to 'Destroy', river_path(@river.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
 \|
 = link_to 'Back', rivers_path

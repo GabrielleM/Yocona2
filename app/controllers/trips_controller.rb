@@ -1,4 +1,16 @@
 class TripsController < ApplicationController
+
+  # before_filter :set_default_river_id
+  # def set_default_river_id
+    # @@default_river_index = River.all[0].id
+  # end
+
+  @@default_river_index = River.all[0].id
+
+  def self.default_river_index
+    @@default_river_index
+  end
+
   # GET /trips
   # GET /trips.json
   def index
@@ -39,6 +51,7 @@ class TripsController < ApplicationController
   # GET /trips/1/edit
   def edit
     @trip = Trip.find(params[:id])
+    @river = River.find_by_id(@trip.river_id)
   end
 
   # POST /trips
@@ -78,11 +91,10 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find(params[:id])
     @trip.update_attributes(params[:trip])
-    redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully updated.'
 
     respond_to do |format|
       if @trip.update_attributes(params[:trip])
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+        format.html { redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

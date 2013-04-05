@@ -1,7 +1,9 @@
 %h1 Update Trip Information
 
 = form_tag river_trip_path(@trip.river_id, @trip.id), :method => :put do
-= render 'form'
-= submit_tag 'Update Trip Information'
+	= render 'form'
+	%br
+	%br
+	= submit_tag 'Update Trip Information'
 
 = link_to 'Back', river_trips_path(@trip.river_id)

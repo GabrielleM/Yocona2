@@ -1,0 +1,21 @@
+%table#trips_index_table
+  %thead
+    %tr
+      %th= 'River'
+      %th= 'Trip Leader'
+      %th= 'Link To Trip Report'
+      %th= 'Date'
+      %th= 'Trip Report Summary'
+      %th= 'Pictures (will display actual pics later)'
+  %tbody
+    - @trips.each do |trip|
+      %tr
+        %td= RiversController.get_name(trip.river_id)
+        %td= trip.leader
+        %td= trip.report_link
+        %td= trip.start_date.strftime("%A, %B %d, %Y")
+        %td= trip.summary
+        %td= trip.pictures
+        %td= link_to 'Show', river_trip_path(trip.river_id, trip.id)
+        %td= link_to 'Edit', edit_river_trip_path(trip.river_id, trip.id)
+        %td= link_to 'Destroy', river_trip_path(trip.river_id, trip.id), :method => :delete, :data => { :confirm => 'Are you sure?' }

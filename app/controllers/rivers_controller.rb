@@ -1,8 +1,9 @@
 class RiversController < ApplicationController
+
   # GET /rivers
   # GET /rivers.json
   def index
-    @rivers = River.all
+    @rivers = River.all({:order => :name})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,4 +83,9 @@ class RiversController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def self.get_name river_id
+    @name = River.find_by_id(river_id).name
+  end 
+
 end

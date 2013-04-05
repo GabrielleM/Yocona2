@@ -32,7 +32,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+th {
   color: #026447;
 }
 .navbar {
@@ -139,6 +140,20 @@ input[type=text] {
 }
 textarea {
   width: 370px;
+}
+table {
+  padding: 20px;
+  text-align: left;
+}
+th,
+td {
+  padding: 15px 40px 15px 0px;
+}
+th {
+  font-size: 110%;
+}
+label {
+  margin-top: 10px;
 }
 /***************** End of Megumi's changes ******************/
 .navbar-inverse .brand {
