@@ -11,11 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404064833) do
+ActiveRecord::Schema.define(:version => 20130405022500) do
 
   create_table "rivers", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "name"
+    t.string   "length"
+    t.string   "difficulty"
+    t.string   "ideal_flow"
+    t.string   "hazards"
+    t.string   "highlights"
+    t.string   "nearest_town"
+    t.text     "description"
+    t.text     "link"
+    t.text     "environmental_ed"
+    t.text     "on_river_special_concerns"
+    t.text     "emergency_plan"
+    t.text     "shuttle_directions"
+    t.text     "camping_locations"
+    t.text     "local_contacts"
+    t.text     "nearest_store"
+    t.text     "map"
   end
 
   create_table "roles", :force => true do |t|
@@ -30,8 +47,20 @@ ActiveRecord::Schema.define(:version => 20130404064833) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "trips", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "leader"
+    t.string   "agency"
+    t.string   "agency_contact"
+    t.string   "num_participants"
+    t.string   "num_guides"
+    t.string   "report_link"
+    t.string   "flow"
+    t.datetime "start_date"
+    t.integer  "duration"
+    t.text     "summary"
+    t.text     "pictures"
+    t.integer  "river_id"
   end
 
   create_table "users", :force => true do |t|
