@@ -26,8 +26,8 @@ class RiversController < ApplicationController
   def new
     # @river = River.new
     @river = River.create!(params[:river])
-    flash[:notice] = "Your river was successfully created."
-    redirect_to "/"
+    # flash[:notice] = "Your river was successfully created."
+    # redirect_to "/"
 
     respond_to do |format|
       format.html # new.html.erb

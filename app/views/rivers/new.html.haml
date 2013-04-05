@@ -1,7 +1,21 @@
 %h1 Create New river
 
 = form_tag rivers_path do
-= render 'form'
-= submit_tag 'Create New River'
+	= render 'form'
+	= submit_tag 'Create New River'
 
-= link_to 'Back', rivers_path
+/ = link_to 'Back', rivers_path
+
+
+/ = form_tag movies_path do
+
+/   = label :movie, :title, 'Title'
+/   = text_field :movie, 'title'
+
+/   = label :movie, :rating, 'Rating'
+/   = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
+
+/   = label :movie, :release_date, 'Released On'
+/   = date_select :movie, :release_date
+
+/   = submit_tag 'Save Changes'
