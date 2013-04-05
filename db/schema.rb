@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405022500) do
+ActiveRecord::Schema.define(:version => 20130405061910) do
 
   create_table "rivers", :force => true do |t|
     t.datetime "created_at",                :null => false
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20130405022500) do
     t.text     "nearest_store"
     t.text     "map"
   end
+
+  add_index "rivers", ["name"], :name => "index_rivers_on_name", :unique => true
 
   create_table "roles", :force => true do |t|
     t.string   "name"

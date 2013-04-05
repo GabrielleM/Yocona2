@@ -30,6 +30,10 @@ class TripsController < ApplicationController
     @river = River.find(params[:river_id])
     # @trip = @river.trips.build
     # respond_with(@trip)
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @trip }
+    end
   end
 
   # GET /trips/1/edit
@@ -45,14 +49,28 @@ class TripsController < ApplicationController
     # redirect_to "/"
 
     @trip = Trip.new(params[:trip])
+    river_name = params[:river]["name"]
+    river = River.find_by_name(river_name) 
+    @trip.river_id = river.id
     @trip.save
-    redirect_to river_trip_path(@trip.river_id,@trip.id), notice: 'Trip was successfully created.' 
+    # redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully created.' 
 
     # @river = River.find(params[:river_id])
     # @trip = @river.trips.build(params[:trip])
     # if @trip.save
 
-    # end 
+    # end
+
+    respond_to do |format|
+      if @trip.save
+        format.html { redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully created.' }
+        format.json { render json: river_trip_path(@trip.river_id, @trip.id), status: :created, location: river_trip_path(@trip.river_id, @trip.id)}
+      else
+        format.html { render action: "new" }
+        format.json { render json: @trip.errors, status: :unprocessable_entity }
+      end
+    end  
+
   end
 
   # PUT /trips/1
@@ -62,6 +80,16 @@ class TripsController < ApplicationController
     @trip.update_attributes(params[:trip])
     redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully updated.'
 
+    respond_to do |format|
+      if @trip.update_attributes(params[:trip])
+        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @trip.errors, status: :unprocessable_entity }
+      end
+    end 
+
   end
 
   # DELETE /trips/1
@@ -70,6 +98,12 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.destroy
     redirect_to river_trip_path
+
+    respond_to do |format|
+      format.html { redirect_to trips_url }
+      format.json { head :no_content }
+    end 
+
   end
 
 
