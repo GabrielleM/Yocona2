@@ -29,7 +29,7 @@ class TripsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @trip }
-    end 
+    end
   end
 
   # GET /trips/1/edit
@@ -41,8 +41,8 @@ class TripsController < ApplicationController
   # POST /trips.json
   def create
     @trip = Trip.create!(params[:trip])
-    flash[:notice] = "Your trip was successfully created."
-    redirect_to "/"
+    # flash[:notice] = "Your trip was successfully created."
+    # redirect_to "/"
 
     respond_to do |format|
       if @trip.save

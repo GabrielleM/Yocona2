@@ -41,7 +41,7 @@ h6 {
 .hero-unit {
   padding: 60px;
   margin-bottom: 30px;
-  margin-top: 50px;
+  margin-top: 0px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
@@ -129,6 +129,16 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 .navbar .dropdown-menu {
   margin-top: 0px;
+}
+.content {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+input[type=text] {
+  width: 370px;
+}
+textarea {
+  width: 370px;
 }
 /***************** End of Megumi's changes ******************/
 .navbar-inverse .brand {
