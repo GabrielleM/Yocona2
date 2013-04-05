@@ -1,7 +1,9 @@
 Yocona2::Application.routes.draw do
-  resources :rivers
+  # resources :trips, :rivers
 
-  resources :trips, :rivers
+  resources :rivers do
+  	resources :trips 
+  end
 
   match '/search' => 'trips#search'
   match '/browse' => 'trips#browse'

@@ -24,15 +24,11 @@ class RiversController < ApplicationController
   # GET /rivers/new
   # GET /rivers/new.json
   def new
-    # @river = River.new
-    @river = River.create!(params[:river])
+    @river = River.new
+    # @river = River.create!(params[:river])
+    
     # flash[:notice] = "Your river was successfully created."
     # redirect_to "/"
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @river }
-    end
   end
 
   # GET /rivers/1/edit
@@ -44,16 +40,6 @@ class RiversController < ApplicationController
   # POST /rivers.json
   def create
     @river = River.new(params[:river])
-
-    respond_to do |format|
-      if @river.save
-        format.html { redirect_to @river, notice: 'River was successfully created.' }
-        format.json { render json: @river, status: :created, location: @river }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @river.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PUT /rivers/1

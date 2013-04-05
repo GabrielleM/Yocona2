@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   # GET /trips.json
   def index
     @trips = Trip.all
+    @river = River.find(params[:river_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class TripsController < ApplicationController
   # GET /trips/1.json
   def show
     @trip = Trip.find(params[:id])
+    @river = River.find(params[:river_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,12 +26,10 @@ class TripsController < ApplicationController
   # GET /trips/new
   # GET /trips/new.json
   def new
-    @trip = Trip.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @trip }
-    end
+    # @trip = Trip.new
+    @river = River.find(params[:river_id])
+    # @trip = @river.trips.build
+    # respond_with(@trip)
   end
 
   # GET /trips/1/edit
@@ -40,35 +40,28 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.create!(params[:trip])
+    # @trip = Trip.create!(params[:trip])
     # flash[:notice] = "Your trip was successfully created."
     # redirect_to "/"
 
-    respond_to do |format|
-      if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render json: @trip, status: :created, location: @trip }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
-    end
+    @trip = Trip.new(params[:trip])
+    @trip.save
+    redirect_to river_trip_path(@trip.river_id,@trip.id), notice: 'Trip was successfully created.' 
+
+    # @river = River.find(params[:river_id])
+    # @trip = @river.trips.build(params[:trip])
+    # if @trip.save
+
+    # end 
   end
 
   # PUT /trips/1
   # PUT /trips/1.json
   def update
     @trip = Trip.find(params[:id])
+    @trip.update_attributes(params[:trip])
+    redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully updated.'
 
-    respond_to do |format|
-      if @trip.update_attributes(params[:trip])
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /trips/1
@@ -76,18 +69,15 @@ class TripsController < ApplicationController
   def destroy
     @trip = Trip.find(params[:id])
     @trip.destroy
-
-    respond_to do |format|
-      format.html { redirect_to trips_url }
-      format.json { head :no_content }
-    end
+    redirect_to river_trip_path
   end
+
+
+  def search
+
+  end 
+
+  def browse
+
+  end 
 end
-
-def search
-
-end 
-
-def browse
-
-end 
