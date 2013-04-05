@@ -4,11 +4,11 @@
 = label :trip, :leader, 'Trip Leader'
 = text_field :trip, :leader
 
-= label :trip, :partner, 'Agency Partner'
-= text_field :trip, :partner
+= label :trip, :agency, 'Agency Partner'
+= text_field :trip, :agency
 
-= label :trip, :contact, 'Agency Partner Contact'
-= text_field :trip, :contact
+= label :trip, :agency_contact, 'Agency Partner Contact'
+= text_field :trip, :agency_contact
 
 = label :trip, :start_date, 'Start Date'
 = date_select :trip, :start_date
@@ -19,17 +19,21 @@
 = label :trip, :flow, 'River Flow'
 = text_field :trip, :flow
 
-= label :trip, :participants, 'Number of Participants'
-= text_field :trip, :participants
+= label :trip, :num_participants, 'Number of Participants'
+= text_field :trip, :num_participants
 
-= label :trip, :guides, 'Number of Guides'
-= text_field :trip, :guides
+= label :trip, :num_guides, 'Number of Guides'
+= text_field :trip, :num_guides
 
 = label :trip, :report_link, 'Link To Trip Report'
 = text_field :trip, :report_link
 
 = label :trip, :summary, 'Trip Report Summary'
 = text_area :trip, :summary, :size => "24x6"
+
+/ Will change later to upload widget
+= label :trip, :pictures, 'Pictures (File Path)'
+= text_area :trip, :pictures, :size => "24x6"
 
 / PaperClip Gem Code below
 / = label :trip, :picture, 'Upload A Picture'
