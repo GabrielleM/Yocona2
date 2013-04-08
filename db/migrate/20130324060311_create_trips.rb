@@ -1,12 +1,9 @@
 class CreateTrips < ActiveRecord::Migration
 
-  def up
-
-    end
-  end
-
-  def down
-  	drop_table 'trips'
-  end 
+	def change
+		create_table :trips do |t|
+		t.timestamps
+		end
+	end 
 
 end
