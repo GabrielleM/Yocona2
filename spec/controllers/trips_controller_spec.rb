@@ -24,7 +24,7 @@ describe TripsController do
   # Trip. As you add validations to Trip, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {  }
+    { :id => 1 }
   end
 
   # This should return the minimal set of values that should be in the session

@@ -14,6 +14,7 @@ gem "email_spec", ">= 1.4.0", :group => :test
 gem "cucumber-rails", ">= 1.3.1", :group => :test, :require => false
 gem "launchy", ">= 2.2.0", :group => :test
 gem "capybara", ">= 2.0.2", :group => :test
+gem 'cucumber-rails-training-wheels', :group => :test
 gem "less-rails", ">= 2.2.6", :group => :assets
 gem "twitter-bootstrap-rails", ">= 2.2.4", :group => :assets
 gem "libv8", ">= 3.11.8"

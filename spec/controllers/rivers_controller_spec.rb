@@ -23,8 +23,8 @@ describe RiversController do
   # This should return the minimal set of attributes required to create a valid
   # River. As you add validations to River, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    {  }
+  def valid_attributes_static
+    {:name => 'A river', :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -33,6 +33,17 @@ describe RiversController do
   def valid_session
     {}
   end
+
+#http://stackoverflow.com/questions/88311/how-best-to-generate-a-random-string-in-ruby
+def nameGen
+  {:name => (0...16).map{(65+rand(26)).chr}.join}
+end
+
+def valid_attributes
+      { :name => (0...16).map{(65+rand(26)).chr}.join, :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' }
+end
+
+
 
   describe "GET index" do
     it "assigns all rivers as @rivers" do
@@ -68,19 +79,23 @@ describe RiversController do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new River" do
+
+        # tmpAttr = {:name => 'A river', :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' }
+
+
         expect {
-          post :create, {:river => valid_attributes}, valid_session
+          post :create, {:river => nameGen }, valid_session
         }.to change(River, :count).by(1)
       end
 
       it "assigns a newly created river as @river" do
-        post :create, {:river => valid_attributes}, valid_session
+        post :create, {:river => nameGen}, valid_session
         assigns(:river).should be_a(River)
         assigns(:river).should be_persisted
       end
 
       it "redirects to the created river" do
-        post :create, {:river => valid_attributes}, valid_session
+        post :create, {:river => nameGen}, valid_session
         response.should redirect_to(River.last)
       end
     end
