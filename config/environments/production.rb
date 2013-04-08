@@ -16,7 +16,7 @@ Yocona2::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-    config.assets.compile = false
+    config.assets.compile = true
   # config.assets.compile = true #changed from false - fixed "We're sorry, but something went wrong" Heroku error due to not precompiling static assets - MH 3/24
 
   # Generate digests for assets URLs
