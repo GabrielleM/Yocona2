@@ -27,7 +27,8 @@ module Yocona2
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/lib)
 
-    config.assets.initialize_on_precompile = false #Added to try to remove precompile error 3/24 MH - also changed production.rb
+    # MH 3/24/13 Added to try to remove precompile error - also changed production.rb
+    config.assets.initialize_on_precompile = false 
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

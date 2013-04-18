@@ -1,3 +1,9 @@
+# MH 3/24/13 Added basic CRUD action for Trips model
+# More complex than Rivers model due to nesting of Trips resource within Rivers resource
+# and nested routing so that all trip routes must follow River/Trip#action route structure
+# As a result, when creating a new Trip, the first River instance in the Rivers table is 
+# used as the default River for the Trip until specified otherwise. 
+
 class TripsController < ApplicationController
 
   # before_filter :set_default_river_id
@@ -5,8 +11,11 @@ class TripsController < ApplicationController
     # @@default_river_index = River.all[0].id
   # end
 
+# MH 3/24/13 -- Retrieve the first river in the Rivers table as a stand-in river while a trip not associated with any river
+# has a river added to it by the user during the Create action 
   @@default_river_index = River.all[0].id
 
+# MH 3/24/13 -- Create class getter for ID of the default river instance, if a trip is not yet associated with any river
   def self.default_river_index
     @@default_river_index
   end
@@ -126,4 +135,5 @@ class TripsController < ApplicationController
   def browse
 
   end 
+  
 end

@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'rails', '3.2.8'
+
+# MH 3/24/13 -- Added for heroku functionality in command line 
 gem "heroku"
 
 group :assets do
@@ -30,6 +32,7 @@ gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.1.0"
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 
+# MH 3/24/13 -- Added for photo/resource upload plugin 
 gem 'paperclip'
 
 
