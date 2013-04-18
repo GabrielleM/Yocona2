@@ -1,5 +1,5 @@
 / MH 3/24/13 Lists all trips for specific river -- uses partial for DRYness
 
-%h1 Listing All Trips at #{RiversController.get_name(@trips[0].river_id)}
+%h1 Listing All Trips at #{RiversController.get_name(@river.id)}
 
 = render :partial => 'listtrips'

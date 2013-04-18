@@ -117,11 +117,11 @@ class TripsController < ApplicationController
   # DELETE /trips/1.json
   def destroy
     @trip = Trip.find(params[:id])
+    river_id = @trip.river_id #MH 4/17/13 - save river id before trip gets deleted and we can no longer access it 
     @trip.destroy
-    redirect_to river_trip_path
 
     respond_to do |format|
-      format.html { redirect_to trips_url }
+      format.html { redirect_to river_trips_path(river_id) }
       format.json { head :no_content }
     end 
 
