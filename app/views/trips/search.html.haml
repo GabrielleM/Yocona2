@@ -1,0 +1,27 @@
+/ MH 4/17/13 Search Trip form that is submitted to search action of the trip controller 
+
+%h1 Search for a Trip
+
+= form_tag search_path, :method => :put do
+
+	= label :river, :name, 'River Name'
+	= text_field :river, :name
+
+	= label :trip, :leader, 'Trip Leader'
+	= text_field :trip, :leader
+
+	= label :trip, :agency, 'Agency Partner'
+	= text_field :trip, :agency
+
+	= label :trip, :start_date, 'Start Date'
+	= date_select :trip, :start_date
+
+	= label :trip, :key_words, 'Key Words'
+	= text_area :trip, :key_words, :size => "24x6"
+	%br 
+	%br 
+	= submit_tag 'Find Trip'
+
+%br
+%br 
+= link_to 'Back', root_path

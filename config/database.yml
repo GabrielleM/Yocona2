@@ -5,7 +5,7 @@ development:
   pool: 5
   timeout: 5000
 
-test:
+test: &test
   adapter: sqlite3
   database: db/test.sqlite3
   pool: 5
@@ -19,3 +19,6 @@ pool: 5
 username: my_app
 password:
 
+
+cucumber:
+  <<: *test

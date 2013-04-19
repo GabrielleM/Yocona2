@@ -13,7 +13,12 @@ class TripsController < ApplicationController
 
 # MH 3/24/13 -- Retrieve the first river in the Rivers table as a stand-in river while a trip not associated with any river
 # has a river added to it by the user during the Create action 
-  @@default_river_index = River.all[0].id
+  if (River.find(:all).empty?)
+    River.create!({:name => 'Big River', :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' })
+    @@default_river_index = River.all[0].id 
+  else 
+    @@default_river_index = River.all[0].id 
+  end 
 
 # MH 3/24/13 -- Create class getter for ID of the default river instance, if a trip is not yet associated with any river
   def self.default_river_index
@@ -127,9 +132,12 @@ class TripsController < ApplicationController
 
   end
 
-
+# MH 4/17/13 Search for all trips matching criteria in submitted form, and return to display to user as list 
   def search
+    #set @trips variable with all matched trips from DB
 
+    #route to special view that lists all trips but for each respective river (unlike index, which lists all trips for 1 river)
+    redirect_to 
   end 
 
   def browse
