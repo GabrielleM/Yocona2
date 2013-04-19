@@ -1,3 +1,5 @@
+# MH 3/24/13 -- Create full columns structure for Rivers table
+
 class AddColumnsToRiver < ActiveRecord::Migration
   def change
   	add_column :rivers, :name, :string

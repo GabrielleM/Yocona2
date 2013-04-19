@@ -1,3 +1,5 @@
+# MH 3/24/13 -- Define all columns for Trip table 
+
 class AddColumnsToTrip < ActiveRecord::Migration
   def change
   	add_column :trips, :leader, :string

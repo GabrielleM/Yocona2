@@ -1,3 +1,5 @@
+/ MH 3/24/13 Template for list of all trips for a specific river
+
 %table#trips_index_table
   %thead
     %tr
@@ -10,6 +12,7 @@
   %tbody
     - @trips.each do |trip|
       %tr
+        / MH 3/24/13 River to which these trips belong 
         %td= RiversController.get_name(trip.river_id)
         %td= trip.leader
         %td= trip.report_link

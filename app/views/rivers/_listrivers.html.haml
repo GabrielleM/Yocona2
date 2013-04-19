@@ -1,0 +1,16 @@
+/ MH 4/17/13 Template for list of all rivers in the DB
+
+%table#rivers_index_table
+  %thead
+  %tbody
+    - @rivers.each do |river|
+      %tr
+        %td= river.name
+        %td= link_to 'Show', river
+        %td= link_to 'Edit', edit_river_path(river)
+        %td= link_to 'Destroy', river, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br 
+%br 
+
+= link_to 'New River', new_river_path

@@ -18,7 +18,9 @@
 # user.confirm!
 # user.add_role :admin
 
-
+# MH 3/24/13 -- Create Dummy seed file to generate a river, as at least 1 river instance is required to 
+# prevent the routes to any trip/trips from failing the first time the client uses the page, due to 
+# nested associations of resources 
 rivers = [
 			{:name => 'Big River', :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' }
 		 ]

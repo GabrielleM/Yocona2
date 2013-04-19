@@ -1,7 +1,9 @@
+/ MH 3/24/13 Edit Existing River Info -- reuse default CRUD details template 'form' for DRYness
+
 %h1 Update River Information
 
 = form_tag river_path(@river.id), :method => :put do
-	= render 'form'
+	= render 'form' 
 	%br
 	%br
 	= submit_tag 'Update River Information'

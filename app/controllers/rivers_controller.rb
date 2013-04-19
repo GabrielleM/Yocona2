@@ -1,3 +1,5 @@
+# MH 3/24/13 Added basic CRUD actions for River model 
+
 class RiversController < ApplicationController
 
   # GET /rivers
@@ -84,6 +86,7 @@ class RiversController < ApplicationController
     end
   end
 
+# MH 3/24/13 Class getter for river name by river ID
   def self.get_name river_id
     @name = River.find_by_id(river_id).name
   end 
