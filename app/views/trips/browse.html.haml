@@ -1,0 +1,53 @@
+/ MH 4/22/13 Browse functionality using JavaScript for AJAX refresh of entire page upon menu filter option change 
+/ Each Select menu has a default 'All' option to display all when no other option has been selected yet by users
+/ The controller sets the most recently selected option (per Select menu) and persists them as @sel_? variables, which 
+/ each Select menu uses to keep the most recently chosen options selected
+/ Whenever a new option is selected in any menu, there is a call to the JS function 'refreshBrowse()'
+/ which submits the form to the Trip controller's browse action  
+
+%h1 Browse Trips 
+
+/ MH 4/22/13 - Use fieldset to group filter menu #menu_unit divs
+%fieldset 
+  %legend Filter By: 
+  = form_tag browse_path, :method => :get, :id => 'browse_filter_form' do
+    #menu_unit
+      %label{:for => 'river_name'} River Name:
+      %select{:name => 'river_name', :onchange => "refreshBrowse()"}
+        %option{:value => "All", :selected => @sel_river == "All"}="All"
+        / Select all rivers from DB with a unique name and populate dropdown menu with that name
+        -River.select("DISTINCT(name)").each do |r|
+          %option{:value => r.name, :selected => @sel_river == r.name}
+            =h r.name
+    #menu_unit
+      %label{:for => 'leader'} Trip Leader:
+      %select{:name => 'leader', :onchange => "refreshBrowse()"}
+        %option{:value => "All", :selected =>  @sel_leader == "All"}="All"
+        / Select all trips from DB with a unique trip leader and populate dropdown menu with that leader
+        -Trip.select("DISTINCT(leader)").each do |t|
+          %option{:value => t.leader, :selected => @sel_leader == t.leader}
+            =h t.leader
+
+    #menu_unit
+      %label{:for => 'flow'} River Flow:
+      %select{:name => 'flow', :onchange => "refreshBrowse()"}
+        %option{:value => "All", :selected => @sel_flow == "All"}="All"
+        / Select all trips from DB with a unique river flow and populate dropdown menu with that flow
+        -Trip.select("DISTINCT(flow)").each do |t|
+          %option{:value => t.flow, :selected => @sel_flow == t.flow}
+            =h t.flow
+
+%br 
+
+/ = @params
+= render :partial => 'listtrips'
+
+
+
+
+/ MH 4/22/13 - Internal JS for now, as external JS file is for some reason not detected with current configurations
+:javascript
+  function refreshBrowse()
+  {
+  	document.forms["browse_filter_form"].submit();
+  }

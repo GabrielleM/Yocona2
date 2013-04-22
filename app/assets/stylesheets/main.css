@@ -2,6 +2,9 @@
    Author's custom styles
    ========================================================================== */
 /*
+
+MH 3/24/13 -- CSS STYLIN' !!
+
 Scheme ID: 3k31Lw0w0w0w0
 
 
@@ -155,7 +158,12 @@ th {
 label {
   margin-top: 10px;
 }
+#menu_unit {
+  width: 250px;
+  float: left;
+}
 /***************** End of Megumi's changes ******************/
 .navbar-inverse .brand {
   color: #111111;
 }
+/******* Begin Gabrielle's Changes **********/

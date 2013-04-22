@@ -5,7 +5,6 @@
     %tr
       %th= 'River'
       %th= 'Trip Leader'
-      %th= 'Link To Trip Report'
       %th= 'Date'
       %th= 'Trip Report Summary'
       %th= 'Pictures (will display actual pics later)'
@@ -15,7 +14,6 @@
         / MH 3/24/13 River to which these trips belong 
         %td= RiversController.get_name(trip.river_id)
         %td= trip.leader
-        %td= trip.report_link
         %td= trip.start_date.strftime("%A, %B %d, %Y")
         %td= trip.summary
         %td= trip.pictures

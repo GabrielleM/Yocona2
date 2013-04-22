@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+
+// $(document).ready(function(){
+
+// 	 alert("Thanks for visiting!");
+
+
+// }); 
+
+// function refreshBrowse()
+// {
+//   alert("Hi!")
+//   document.forms["browse_filter_form"].submit();
+
+// }
+
