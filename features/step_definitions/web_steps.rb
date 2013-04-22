@@ -67,11 +67,19 @@ end
 
 # Use this to fill in an entire form with data from a table. Example:
 #
+<<<<<<< HEAD
 #   When I fill in the following:
 #     | Account Number | 5002       |
 #     | Expiry date    | 2009-11-01 |
 #     | Note           | Nice guy   |
 #     | Wants Email?   |            |
+=======
+# When I fill in the following:
+# | Account Number | 5002 |
+# | Expiry date | 2009-11-01 |
+# | Note | Nice guy |
+# | Wants Email? | |
+>>>>>>> f346752e579dd6d2c7eda473a96796c3b793f0e1
 #
 # TODO: Add support for checkbox, select or option
 # based on naming conventions.
@@ -240,7 +248,11 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
+<<<<<<< HEAD
   expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')} 
+=======
+  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
+>>>>>>> f346752e579dd6d2c7eda473a96796c3b793f0e1
   
   if actual_params.respond_to? :should
     actual_params.should == expected_params
@@ -251,4 +263,8 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> f346752e579dd6d2c7eda473a96796c3b793f0e1
