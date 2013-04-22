@@ -132,12 +132,38 @@ class TripsController < ApplicationController
 
   end
 
-# MH 4/17/13 Search for all trips matching criteria in submitted form, and return to display to user as list 
-  def search
-    #set @trips variable with all matched trips from DB
+# MH 4/21/13 Search for all trips matching criteria in submitted form, and return to display to user as list 
+  def search_results
+    @search_params = {}
 
-    #route to special view that lists all trips but for each respective river (unlike index, which lists all trips for 1 river)
-    redirect_to 
+    #If the user has entered a search term, include it in the search params to pass to the Model find method
+    if params[:river][:name] != "" && params[:river][:name] != nil
+      name = params[:river][:name]
+      river_id = River.find_all_by_name(name)[0].id
+      @search_params[:river_id] = river_id
+    end 
+    if params[:trip][:leader] != "" && params[:trip][:leader] != nil
+      leader = params[:trip][:leader]
+      @search_params[:leader] = leader
+    end 
+    if params[:trip][:agency] != "" && params[:trip][:agency] != nil
+      trip_agency = params[:trip][:agency]
+      @search_params[:agency] = trip_agency 
+    end 
+    if params[:trip][:start_date] != "" && params[:trip][:start_date] != nil
+      date = params[:trip][:start_date]
+      @search_params[:start_date] = date
+    end 
+    # if params[:trip][:key_words] != "" && params[:trip][:key_words] != nil
+    #   keywords = params[:trip][:key_words]
+    # end 
+
+    # Search model depending on params that are set by calling Trip model's find method
+    # Set @trips variable to the result to make available to search_results view 
+    @trips = Trip.find(:all, :conditions => @search_params)
+
+    # Table.where('keywords LIKE ?', '%crescent%').all
+   
   end 
 
   def browse
