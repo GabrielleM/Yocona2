@@ -36,7 +36,8 @@ h3,
 h4,
 h5,
 h6,
-th {
+th,
+label {
   color: #026447;
 }
 .navbar {
@@ -152,7 +153,8 @@ th,
 td {
   padding: 15px 40px 15px 0px;
 }
-th {
+th,
+label {
   font-size: 110%;
 }
 label {

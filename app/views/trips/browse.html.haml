@@ -36,13 +36,12 @@
         -Trip.select("DISTINCT(flow)").each do |t|
           %option{:value => t.flow, :selected => @sel_flow == t.flow}
             =h t.flow
-
+%br
+%hr
 %br 
 
 / = @params
 = render :partial => 'listtrips'
-
-
 
 
 / MH 4/22/13 - Internal JS for now, as external JS file is for some reason not detected with current configurations
