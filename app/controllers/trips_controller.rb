@@ -171,20 +171,20 @@ class TripsController < ApplicationController
 
     @search_params = {}
 
-    if params[:river_name] == "All"
+    if params[:river_name] == "All" || params[:river_name] == nil
       @sel_river = "All"
     else 
       @sel_river = params[:river_name]
       river_id = River.find_all_by_name(params[:river_name])[0].id
       @search_params[:river_id] = river_id
     end 
-    if params[:leader] == "All"
+    if params[:leader] == "All" || params[:leader] == nil
       @sel_leader = "All"
     else 
       @sel_leader = params[:leader]
       @search_params[:leader] = params[:leader]
     end 
-    if params[:flow] == "All"
+    if params[:flow] == "All" || params[:flow] == nil
       @sel_flow = "All"
     else 
       @sel_flow = params[:flow]
