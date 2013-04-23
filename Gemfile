@@ -45,8 +45,8 @@ gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.1.0"
 
-# MH 3/24/13 -- Added for photo/resource upload plugin 
-gem 'paperclip', "~> 3.0"
+# # MH 3/24/13 -- Added for photo/resource upload plugin 
+# gem 'paperclip', "~> 3.0"
 
 
 
