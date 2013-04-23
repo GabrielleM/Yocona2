@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405061910) do
+ActiveRecord::Schema.define(:version => 20130422220352) do
 
   create_table "rivers", :force => true do |t|
     t.datetime "created_at",                :null => false
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20130405061910) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "trips", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.string   "leader"
     t.string   "agency"
     t.string   "agency_contact"
@@ -61,8 +61,11 @@ ActiveRecord::Schema.define(:version => 20130405061910) do
     t.datetime "start_date"
     t.integer  "duration"
     t.text     "summary"
-    t.text     "pictures"
     t.integer  "river_id"
+    t.string   "pictures_file_name"
+    t.string   "pictures_content_type"
+    t.integer  "pictures_file_size"
+    t.datetime "pictures_updated_at"
   end
 
   create_table "users", :force => true do |t|

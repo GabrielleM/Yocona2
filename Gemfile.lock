@@ -246,7 +246,7 @@ DEPENDENCIES
   launchy (>= 2.2.0)
   less-rails (>= 2.2.6)
   libv8 (>= 3.11.8)
-  paperclip
+  paperclip (~> 3.0)
   pg
   rails (= 3.2.8)
   rolify (>= 3.2.0)

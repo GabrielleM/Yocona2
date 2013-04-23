@@ -7,7 +7,7 @@
       %th= 'Trip Leader'
       %th= 'Date'
       %th= 'Trip Report Summary'
-      %th= 'Pictures (will display actual pics later)'
+      /%th= 'Pictures (will display actual pics later)'
   %tbody
     - @trips.each do |trip|
       %tr
@@ -16,7 +16,7 @@
         %td= trip.leader
         %td= trip.start_date.strftime("%A, %B %d, %Y")
         %td= trip.summary
-        %td= trip.pictures
+        /%td= trip.pictures
         %td= link_to 'Show', river_trip_path(trip.river_id, trip.id)
         %td= link_to 'Edit', edit_river_trip_path(trip.river_id, trip.id)
         %td= link_to 'Destroy', river_trip_path(trip.river_id, trip.id), :method => :delete, :data => { :confirm => 'Are you sure?' }

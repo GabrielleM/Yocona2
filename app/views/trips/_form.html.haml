@@ -33,13 +33,10 @@
 = label :trip, :summary, 'Trip Report Summary'
 = text_area :trip, :summary, :size => "24x6"
 
-/ Will change later to upload widget
-= label :trip, :pictures, 'Pictures (File Path)'
-= text_area :trip, :pictures, :size => "24x6"
-
 / PaperClip Gem Code below
-/ = label :trip, :picture, 'Upload A Picture'
-/ = file_field :trip, :picture
+/= label :trip, :picture, 'Picture'
+/= file_field :trip, :picture
+
 
 / id: trip_id, name: trip[id] -- how the above form :attributes will be expanded out in code 
 

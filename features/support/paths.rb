@@ -13,18 +13,12 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-<<<<<<< HEAD
-    when /^the home\s?page$/
-      '/'
-
-=======
     when /^the (Yocona )?home\s?page$/ then  '/'
       
     when /^the Yocona home page$/ then  '/'
 
     when /the Yocona home page/
       '/'
->>>>>>> f346752e579dd6d2c7eda473a96796c3b793f0e1
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

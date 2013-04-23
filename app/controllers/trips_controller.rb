@@ -54,8 +54,7 @@ class TripsController < ApplicationController
   def new
     # @trip = Trip.new
     @river = River.find(params[:river_id])
-    # @trip = @river.trips.build
-    # respond_with(@trip)
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @trip }
@@ -71,22 +70,12 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    # @trip = Trip.create!(params[:trip])
-    # flash[:notice] = "Your trip was successfully created."
-    # redirect_to "/"
 
     @trip = Trip.new(params[:trip])
     river_name = params[:river]["name"]
     river = River.find_by_name(river_name) 
     @trip.river_id = river.id
     @trip.save
-    # redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully created.' 
-
-    # @river = River.find(params[:river_id])
-    # @trip = @river.trips.build(params[:trip])
-    # if @trip.save
-
-    # end
 
     respond_to do |format|
       if @trip.save
