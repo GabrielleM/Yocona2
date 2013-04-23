@@ -27,13 +27,17 @@
       %td= @trip.summary
     %tr  
       %th= 'Pictures (will display actual pics later)'
-      %td= @trip.pictures
+      %td
+        %img{:src => @trip.image_url}
       
 %br
 %br
+
 
 =link_to 'Back', river_trips_path(@trip.river_id)
 \|
 =link_to 'Edit', edit_river_trip_path(@trip.river_id, @trip.id)
 \|
 = link_to 'Destroy', river_trip_path(@trip.river_id, @trip.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
