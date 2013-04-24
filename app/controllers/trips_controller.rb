@@ -6,11 +6,6 @@
 
 class TripsController < ApplicationController
 
-  # before_filter :set_default_river_id
-  # def set_default_river_id
-    # @@default_river_index = River.all[0].id
-  # end
-
 # MH 3/24/13 -- Retrieve the first river in the Rivers table as a stand-in river while a trip not associated with any river
 # has a river added to it by the user during the Create action 
   if (River.find(:all).empty?)
@@ -54,7 +49,7 @@ class TripsController < ApplicationController
   def new
     # @trip = Trip.new
     @river = River.find(params[:river_id])
-
+    @trip = Trip.new 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @trip }
@@ -93,7 +88,10 @@ class TripsController < ApplicationController
   # PUT /trips/1.json
   def update
     @trip = Trip.find(params[:id])
-    @trip.update_attributes(params[:trip])
+    @trip.update_attributes(params[:trip].except(:attachments_attributes)) 
+    #MH 4/24/13 - Ignore attachments_attributes param to eliminate CarrierWave bugs 
+    #when updating existing photographs -- otherwise, duplicate photos will be uploaded and destroy photos will throw errors 
+    #as photos with those IDs for some reason cannot be found for that trip instance
 
     respond_to do |format|
       if @trip.update_attributes(params[:trip])

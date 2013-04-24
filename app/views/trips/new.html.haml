@@ -1,14 +1,7 @@
 / MH 3/24/13 Create a brand new trip and sets up association of trip to a certain river 
 
 %h1 Create New Trip
+= render :partial => 'form'
 
-= form_tag river_trips_path(@river.id), :multipart => true 	do 
-	= render :partial => 'form'
-	%br
-	%br
-	= submit_tag 'Create New Trip'
-
-%br
-%br
 = link_to 'Back', river_trips_path(@river.id)
 

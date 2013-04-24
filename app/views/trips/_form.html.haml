@@ -1,41 +1,38 @@
 / MH 3/24/13 Default display template for detail view of Trip that displays all of its attributes -- used in CRUD views
+= nested_form_for [@river, @trip], :html=>{:multipart => true } do |f| 
+  = label :river, :name, "River"
+  = text_field :river, :name
+  = f.label :leader 
+  = f.text_field :leader 
+  = f.label :agency 
+  = f.text_field :agency 
+  = f.label :agency_contact 
+  = f.text_field :agency_contact
+  = f.label :start_date 
+  = f.date_select :start_date
+  = f.label :duration 
+  = f.select :duration, [1, 2]
+  = f.label :flow 
+  = f.text_field :flow   
+  = f.label :num_participants 
+  = f.text_field :num_participants
+  = f.label :num_guides 
+  = f.text_field :num_guides
+  = f.label :report_link 
+  = f.text_field :report_link
+  = f.label :summary 
+  = f.text_area :summary, :size => "24x6" 
+  / MH 4/24/13 Displays File upload menu for CarrierWave
+  = f.fields_for :attachments do |attachment_form|  
+    = image_tag(attachment_form.object.file.url) if attachment_form.object.file?
+    = attachment_form.label :file 
+    = attachment_form.file_field :file 
+    = attachment_form.link_to_remove "Remove this attachment" 
+  = f.link_to_add "Add attachment", :attachments 
+  = f.submit 
 
-= label :river, :name, 'River Name'
-= text_field :river, :name
 
-= label :trip, :leader, 'Trip Leader'
-= text_field :trip, :leader
 
-= label :trip, :agency, 'Agency Partner'
-= text_field :trip, :agency
-
-= label :trip, :agency_contact, 'Agency Partner Contact'
-= text_field :trip, :agency_contact
-
-= label :trip, :start_date, 'Start Date'
-= date_select :trip, :start_date
-
-= label :trip, :duration, 'Duration (Days)'
-= select :trip, :duration, [1, 2]
-
-= label :trip, :flow, 'River Flow'
-= text_field :trip, :flow
-
-= label :trip, :num_participants, 'Number of Participants'
-= text_field :trip, :num_participants
-
-= label :trip, :num_guides, 'Number of Guides'
-= text_field :trip, :num_guides
-
-= label :trip, :report_link, 'Link To Trip Report'
-= text_field :trip, :report_link
-
-= label :trip, :summary, 'Trip Report Summary'
-= text_area :trip, :summary, :size => "24x6"
-
-/ PaperClip Gem Code below
-= label :trip, :image, 'Image'
-= file_field :trip, :image
 
 
 / id: trip_id, name: trip[id] -- how the above form :attributes will be expanded out in code 

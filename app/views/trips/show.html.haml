@@ -28,8 +28,9 @@
     %tr  
       %th= 'Pictures (will display actual pics later)'
       %td
-        %img{:src => @trip.image_url}
-      
+        -for attachment in @trip.attachments
+          %img{:src => attachment.file_url}
+          / MH 4/24/13 - Displays each attachment(picture) in the attachments field of trip (CarrierWave)
 %br
 %br
 
@@ -39,5 +40,3 @@
 =link_to 'Edit', edit_river_trip_path(@trip.river_id, @trip.id)
 \|
 = link_to 'Destroy', river_trip_path(@trip.river_id, @trip.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
