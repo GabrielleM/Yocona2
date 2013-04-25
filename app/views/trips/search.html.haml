@@ -16,6 +16,9 @@
 	= label :trip, :start_date, 'Start Date'
 	= date_select :trip, :start_date, :include_blank => true, :default => nil
 
+	= label :trip, :keywords, 'Keywords'
+	= text_area :trip, :keywords, :size => "24x6" 
+
 	%br 
 	%br 
 	= submit_tag 'Find Trip'

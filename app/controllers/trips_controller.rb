@@ -123,6 +123,7 @@ class TripsController < ApplicationController
   def search_results
     @search_params = {}
 
+
     #If the user has entered a search term, include it in the search params to pass to the Model find method
     if params[:river][:name] != "" && params[:river][:name] != nil
       name = params[:river][:name]
@@ -141,16 +142,27 @@ class TripsController < ApplicationController
       date = params[:trip][:start_date]
       @search_params[:start_date] = date
     end 
-    # if params[:trip][:key_words] != "" && params[:trip][:key_words] != nil
-    #   keywords = params[:trip][:key_words]
-    # end 
+    if params[:trip][:key_words] != "" && params[:trip][:keywords] != nil
+      keywords = params[:trip][:keywords]
+    end 
 
-    # Search model depending on params that are set by calling Trip model's find method
+    # MH 4/24/13 - Search model depending on params that are set by calling Trip model's find method
     # Set @trips variable to the result to make available to search_results view 
-    @trips = Trip.find(:all, :conditions => @search_params)
-
-    # Table.where('keywords LIKE ?', '%crescent%').all
-   
+    # Search algorithm: if the user has entered keywords, search summary column in Trips table
+    # for those keywords, and return any matches (regardless of other column values for now)
+    # if no keywords are entered, then search using other params
+    #   User.friends.find(:all, :conditions => [
+    #    'town LIKE ? AND hobby = ? AND age >= ?', 
+    #    "%#{params[:town]}%", params[:hobby], params[:age] 
+    # ])
+    @trips = Trip.find(:all, :conditions => 
+      if(keywords == "" || keywords == nil) 
+        @search_params 
+      else
+        # ["summary LIKE ? AND river_id = ? AND leader = ? AND agency = ? AND start_date = ?", 
+        # "%#{keywords}%", river_id, leader, trip_agency, date] #this doesn't work unless all form fields are filled out
+       ["summary like ?", keywords + "%"] || @search_params
+      end )  
   end 
 
   def browse
