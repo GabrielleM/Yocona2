@@ -27,8 +27,14 @@ rivers = [
 			{:name => 'South Fork of the American, Gorge', :length => '10 miles', :difficulty => 'class 3+', :ideal_flow => '1500-2500cfs', :highlights => "Satan's Cesspool, Hospital Bar, Jumping Rock" , :nearest_town => 'Coloma', :description => 'fun class 3, dam release, very popular commercial run', :link => 'http://cacreeks.com/amer-sf.htm', :shuttle_directions => 'http://www.icorafting.org/main/tripleader/south-fork-american', :camping_locations => 'Camp Lotus' },
 			{:name => 'Kings', :length => 'Medium', :difficulty => 'Class 3', :ideal_flow => '1000-1200 CFS', :nearest_town => 'Piedra', :link => 'http://www.californiawhitewater.com/rivers/kings/',:camping_locations => 'Kirch Flat campground, Garnet Dike campground'}
 		 ]
-
-
+=begin
+trips = [
+			{:leader=> 'Bill Weinberg', :agency, :agency_contact, :report_link, :start_date, :pictures, :duration, :flow, :summary, :num_participants, :num_guides, :attachments_attributes},
+			{:leader, :agency, :agency_contact, :report_link, :start_date, :pictures, :duration, :flow, :summary, :num_participants, :num_guides, :attachments_attributes}, 
+			{:leader, :agency, :agency_contact, :report_link, :start_date, :pictures, :duration, :flow, :summary, :num_participants, :num_guides, :attachments_attributes},
+		 	{:leader, :agency, :agency_contact, :report_link, :start_date, :pictures, :duration, :flow, :summary, :num_participants, :num_guides, :attachments_attributes}
+		 ]
+=end
 
 
 
