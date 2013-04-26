@@ -37,9 +37,6 @@ class Trip < ActiveRecord::Base
   has_many :attachments, :as => :attachable
   accepts_nested_attributes_for :attachments, :allow_destroy => true
 
-  def self.search(query)
-
-  end 
 
 end
 
