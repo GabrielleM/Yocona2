@@ -17,13 +17,6 @@ Background: rivers are in database
   #|Big River|Medium |Intermediate |Medium | Raining chipmunks | Raining chipmunks |Nowhereville | It's a big river |www.link.com |Environmental Ed Notes of some sort| None |Run for your life |  Follow the yellow brick road |Right here | Mr. Bigglesworth | Chevron quikmart | Here's a map
   #And I am on the Yocona home page
 
-  
-Scenario: show the user a river
-  Given I am on the page to list rivers
-  Then I should see "Listing rivers"
-  And I should see "Big River"
-
-
 Scenario: allow user to see landing page
   When I visit the Yocona home page
   Then I should see the default index

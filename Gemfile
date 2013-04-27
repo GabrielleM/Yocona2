@@ -30,6 +30,7 @@ group :development, :test do
   gem "database_cleaner", ">= 1.0.0.RC1"
   gem "cucumber-rails", ">= 1.3.1", :require => false
   gem 'cucumber-rails-training-wheels'
+  gem 'simplecov'
 end 
 
 group :production do
