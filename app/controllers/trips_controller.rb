@@ -71,7 +71,7 @@ class TripsController < ApplicationController
     river = River.find_by_name(river_name) 
     @trip.river_id = river.id
     @trip.save
-
+    
     respond_to do |format|
       if @trip.save
         format.html { redirect_to river_trip_path(@trip.river_id, @trip.id), notice: 'Trip was successfully created.' }

@@ -74,4 +74,4 @@ pickle-email-*.html
 **.swp
 
 # Ignore uploaded files
-/public/uploads
+#/public/uploads

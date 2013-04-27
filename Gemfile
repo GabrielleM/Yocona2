@@ -51,4 +51,4 @@ gem "mini_magick"
 gem 'nested_form'
 
 gem 'annotate', ">=2.5.0"
-
+gem 'activerecord-import'
