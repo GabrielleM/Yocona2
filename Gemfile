@@ -52,4 +52,5 @@ gem "mini_magick"
 gem 'nested_form'
 
 gem 'annotate', ">=2.5.0"
+# GM 4/27/13 Added for bulk insert
 gem 'activerecord-import'

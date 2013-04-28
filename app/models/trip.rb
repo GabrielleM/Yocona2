@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: trips
@@ -29,7 +30,7 @@
 # A trip cannot be created with a river (validates presence of)
 
 class Trip < ActiveRecord::Base
-  attr_accessible :leader, :agency, :agency_contact, :report_link, :start_date, :pictures, :duration, :flow, :summary, :num_participants, :num_guides, :attachments_attributes
+  attr_accessible :leader, :agency, :agency_contact, :report_link, :start_date, :pictures, :duration, :flow, :summary, :num_participants, :num_guides, :attachments_attributes, :river_id
   belongs_to :river
   validates_presence_of :river
   # mount_uploader :image, ImageUploader
