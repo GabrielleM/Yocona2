@@ -18,9 +18,15 @@ match '/search_results' => 'trips#search_results'
   match '/browse' => 'trips#browse'
   # match "/patients/:id" => "patients#show"
 
-# MH 3/24/13 - Landing page (currently static)
-  devise_for :users
+
+  # devise_for :users
+  # MH 4/30/13 - Fixed Devise destroy_user_session_path routing bug 
+  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
+
+  # MH 3/24/13 - Landing page (currently static)
   root :to => 'trips#landing' 
 
 end
+
+
 

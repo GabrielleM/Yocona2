@@ -28,6 +28,7 @@ module Yocona2
     config.autoload_paths += %W(#{config.root}/lib)
 
     # MH 3/24/13 Added to try to remove precompile error - also changed production.rb
+    # MH 4/30/13 - Confirmed to be necessary for Devise Auth Plugin
     config.assets.initialize_on_precompile = false 
 
     # Only load the plugins named here, in the order given (default is alphabetical).

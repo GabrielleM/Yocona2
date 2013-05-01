@@ -2,6 +2,9 @@
 
 class RiversController < ApplicationController
 
+  # MH 4/30/13 Devise allows non-authenticated users to only access show and index CRUD actions
+  before_filter :authenticate_user!, :except => [:show, :index]  
+
   # GET /rivers
   # GET /rivers.json
   def index
