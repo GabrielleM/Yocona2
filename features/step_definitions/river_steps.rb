@@ -15,8 +15,24 @@ Given /the following rivers exist/ do |rivers_table|
 end
 
 #Given(/^I am on the Yocona home page$/) do
-##  pending # express the regexp above with the code you wish you had
+Given(/^I delete the river entry$/) do
+    num = River.count
+  Capybara.current_session.driver.delete "rivers/#{num}"
+  River.count.should == (num - 1)
+  visit path_to("list rivers")
+end
 #end
+
+#page.execute_script("$('body').append("<a href="/users/1" data-method="delete" rel="nofollow">Destroy</a>")")
+
+
+
+When(/^I visit the Yocona home page$/) do
+  '/index'
+end
+
+
+
 
 When(/^I visit the yocona home page$/) do
   '/index'
@@ -29,3 +45,4 @@ Then(/^I should see the default index$/) do
   puts page.body
   #pending # express the regexp above with the code you wish you had
 end
+

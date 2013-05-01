@@ -27,15 +27,23 @@
         -Trip.select("DISTINCT(leader)").each do |t|
           %option{:value => t.leader, :selected => @sel_leader == t.leader}
             =h t.leader
-
     #menu_unit
-      %label{:for => 'flow'} River Flow:
-      %select{:name => 'flow', :onchange => "refreshBrowse()"}
-        %option{:value => "All", :selected => @sel_flow == "All"}="All"
+      %label{:for => 'agency'} Agency:
+      %select{:name => 'agency', :onchange => "refreshBrowse()"}
+        %option{:value => "All", :selected => @sel_agency == "All"}="All"
         / Select all trips from DB with a unique river flow and populate dropdown menu with that flow
-        -Trip.select("DISTINCT(flow)").each do |t|
-          %option{:value => t.flow, :selected => @sel_flow == t.flow}
-            =h t.flow
+        -Trip.select("DISTINCT(agency)").each do |t|
+          %option{:value => t.agency, :selected => @sel_agency == t.agency}
+            =h t.agency
+/ GM 4/27/13 Replacing "river flow" with "agency" in Browse filters for now ...
+/    #menu_unit
+/      %label{:for => 'flow'} River Flow:
+/      %select{:name => 'flow', :onchange => "refreshBrowse()"}
+/        %option{:value => "All", :selected => @sel_flow == "All"}="All"
+/         Select all trips from DB with a unique river flow and populate dropdown menu with that flow
+/        -Trip.select("DISTINCT(flow)").each do |t|
+/          %option{:value => t.flow, :selected => @sel_flow == t.flow}
+/            =h t.flow
 %br
 %hr
 %br 

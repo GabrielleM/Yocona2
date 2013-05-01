@@ -4,6 +4,14 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
+begin
+require 'simplecov'
+SimpleCov.start 'rails'
+rescue Exception => e
+  
+end
+
+
 require 'cucumber/rails'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
