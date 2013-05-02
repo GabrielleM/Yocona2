@@ -2,11 +2,12 @@
 
 %h1 Update River Information
 
-= form_tag river_path(@river.id), :method => :put do
-	= render 'form' 
-	%br
-	%br
-	= submit_tag 'Update River Information'
+= render :partial => 'form'
+/ = form_tag river_path(@river.id), :method => :put do
+/ 	= render 'form' 
+/ 	%br
+/ 	%br
+/ 	= submit_tag 'Update River Information'
 
 = link_to 'Back', rivers_path
 

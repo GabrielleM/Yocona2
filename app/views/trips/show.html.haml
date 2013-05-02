@@ -29,7 +29,7 @@
       %th= 'Trip Report Summary'
       %td= @trip.summary
     %tr  
-      %th= 'Pictures (will display actual pics later)'
+      %th= 'Pictures'
       %td
         -for attachment in @trip.attachments
           %img{:src => attachment.file_url,:width => '300px'}

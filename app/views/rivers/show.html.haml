@@ -10,20 +10,26 @@
       
   %tbody
     %tr
-      %th River Name
+      %th= 'River Name'
       %td= @river.name
     %tr
-      %th Length
+      %th= 'Length'
       %td= @river.length
     %tr
-      %th Difficulty
+      %th= 'Difficulty'
       %td= @river.difficulty
     %tr
-      %th River Description
+      %th= 'River Description'
       %td= @river.description
     %tr
-      %th Highlights
+      %th= 'Highlights'
       %td= @river.highlights
+    %tr  
+      %th= 'Pictures'
+      %td
+        -for attachment in @river.attachments
+          %img{:src => attachment.file_url,:width => '300px'}
+          / MH 5/1/13 - Displays each attachment(picture) in the attachments field of trip (CarrierWave)
 %br
 %br
 
