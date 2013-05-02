@@ -2,7 +2,7 @@
 
 class AddColumnsToRiver < ActiveRecord::Migration
   def change
-  	add_column :rivers, :name, :string
+  	add_column :rivers, :name, :string, :unique => true 
   	add_column :rivers, :length, :string
   	add_column :rivers, :difficulty, :string
   	add_column :rivers, :ideal_flow, :string

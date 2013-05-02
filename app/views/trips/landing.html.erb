@@ -6,7 +6,9 @@
             <div class="hero-unit">
                 <h1>Begin Your Journey</h1>
                 <p>Yocona is a river trip planner developed for the San Francisco Bay Inner City Outings rafting program. Here you can preview potential destinations, track logistical details, and document your most recent expedition. Find all the information you need for your next adventure!</p>
-                <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+                <p>
+                    <%= button_to "Learn More &raquo;".html_safe, about_path, :class => "btn btn-primary btn-large", :method => :get %>
+                </p>
             </div>
 
             <!-- Example row of columns -->
@@ -15,19 +17,29 @@
                      <img src= "/assets/SeniorGuidingWithKids.jpg" class="img-rounded">
                     <h3>Document your adventure</h3>
                     <p>Keep track of logistics for your upcoming rafting trip. Record information from recent expeditions.</p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                    <p>
+                        <!--MH 5/1/13 -->
+                        <%= button_to "View details &raquo;".html_safe, new_river_trip_path(TripsController.default_river_index), :class => "btn", :method => :get %>
+                    </p>
                 </div>
                 <div class="span4">
                     <img src= "/assets/Clavey_sideways.jpg" class="img-rounded">
                     <h3>Explore Rivers</h3>
                     <p>Find information on rivers throughout California, including the South Fork of the American, Tuolumne, Kings, Trinity and many more!</p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                    <p>
+                        <!--MH 5/1/13 -->
+                        <%= button_to "View details &raquo;".html_safe, rivers_path, :class => "btn", :method => :get %>
+                    </p>
                </div>
                 <div class="span4">
                      <img src= "/assets/DiagramOnRaft3.jpg" class="img-rounded">
                     <h3>Featured Trip</h3>
                     <p>Check out images and stories from ICO’s spring guide training on the South Fork of the American River.</p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                    <p>
+                        <!--MH 5/1/13 Must change later to point to actaul American River trips or specific trip-->
+                        <%= button_to "View details &raquo;".html_safe, river_trips_path(TripsController.default_river_index), :class => "btn", :method => :get %>
+                        <!-- River.find_by_name("American River").id -->
+                    </p>
                 </div>
             </div>
 

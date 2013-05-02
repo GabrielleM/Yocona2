@@ -1,55 +1,73 @@
-/ MH 3/24/13 Default display template for detail view of River that displays all of its attributes -- used in CRUD views
-= label :river, :name, 'River Name'
-= text_field :river, :name
 
-= label :river, :length, 'Length'
-= text_field :river, :length
+/ MH 5/1/13 Default display template for detail view of Trip that displays all of its attributes -- used in CRUD views
+= nested_form_for [@river], :html=>{:multipart => true } do |f| 
 
-= label :river, :difficulty, 'Difficulty (at ideal flow)'
-= select :river, :difficulty, ['Beginner', 'Intermediate', 'Advanced', 'EXTREME']
+  = f.label :name 
+  = f.text_field :name 
 
-= label :river, :ideal_flow, 'Ideal Flow'
-= text_field :river, :ideal_flow
+  = f.label :length 
+  = f.text_field :length 
 
-= label :river, :hazards, 'Hazards'
-= text_field :river, :hazards
+  = f.label :difficulty 
+  = f.select :difficulty, ['Beginner', 'Intermediate', 'Advanced', 'EXTREME']
 
-= label :river, :highlights, 'Highlights'
-= text_field :river, :highlights
+  = f.label :ideal_flow 
+  = f.text_field :ideal_flow
 
-= label :river, :nearest_town, 'Nearest Town'
-= text_field :river, :nearest_town
+  = f.label :hazards 
+  = f.text_field :hazards
 
-= label :river, :description, 'River Description'
-= text_area :river, :description, :size => "24x6"
+  = f.label :highlights 
+  = f.text_field :highlights
 
-= label :river, :link, 'Link To CalCreeks'
-= text_field :river, :link
+  = f.label :nearest_town 
+  = f.text_field :nearest_town
 
-= label :river, :environmental_ed, 'Environmental Ed Notes'
-= text_area :river, :environmental_ed, :size => "24x6"
+  = f.label :description 
+  = f.text_area :description, :size => "24x6" 
 
-= label :river, :on_river_special_concerns, 'On-River Special Concerns'
-= text_area :river, :on_river_special_concerns, :size => "24x6"
+  = f.label :link 
+  = f.text_field :link   
 
-= label :river, :shuttle_directions, 'Shuttle Directions From Landmark/Freeway Exit'
-= text_area :river, :shuttle_directions, :size => "24x6"
+  = f.label :environmental_ed 
+  = f.text_area :environmental_ed, :size => "24x6" 
 
-= label :river, :camping_locations, 'Camping Locations'
-= text_area :river, :camping_locations, :size => "24x6"
+  = f.label :on_river_special_concerns 
+  = f.text_area :on_river_special_concerns, :size => "24x6" 
 
-= label :river, :local_contacts, 'Local Contacts'
-= text_area :river, :local_contacts, :size => "24x6"
+  = f.label :shuttle_directions 
+  = f.text_area :shuttle_directions, :size => "24x6" 
 
-= label :river, :emergency_plan, 'Emergency Management Plan'
-= text_area :river, :emergency_plan, :size => "24x6"
+  = f.label :camping_locations 
+  = f.text_area :camping_locations, :size => "24x6" 
 
-= label :river, :nearest_store, 'Nearest Grocery Store'
-= text_area :river, :nearest_store, :size => "24x6"
+  = f.label :local_contacts 
+  = f.text_area :local_contacts, :size => "24x6" 
 
-/ Will change later to upload widget
-= label :river, :map, 'Map (File Path)'
-= text_area :river, :map, :size => "24x6"
+  = f.label :emergency_plan 
+  = f.text_area :emergency_plan, :size => "24x6" 
+
+  = f.label :nearest_store 
+  = f.text_area :nearest_store, :size => "24x6" 
+
+  / MH 5/1/13 Displays File upload menu for CarrierWave
+  %br
+  = f.fields_for :attachments do |attachment_form|  
+    = image_tag(attachment_form.object.file.url, :width => '300px') if attachment_form.object.file?
+    = attachment_form.label :file 
+    = attachment_form.file_field :file 
+    = attachment_form.link_to_remove "Remove this attachment" 
+  <br>
+  = f.link_to_add "Add attachment", :attachments 
+  %br
+  %br
+  %br
+  = f.submit 
+
+
+/ / Will change later to upload widget
+/ = label :river, :map, 'Map (File Path)'
+/ = text_area :river, :map, :size => "24x6"
 
 / Distance from Home: 
 / Where will user enter location? This is tricky because this will differ for everyone who views the river info, and depends on trip. Should this go into the Trip model & DB instead? Probably. 

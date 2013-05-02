@@ -29,10 +29,10 @@
       %th= 'Trip Report Summary'
       %td= @trip.summary
     %tr  
-      %th= 'Pictures (will display actual pics later)'
+      %th= 'Pictures'
       %td
         -for attachment in @trip.attachments
-          %img{:src => attachment.file_url}
+          %img{:src => attachment.file_url,:width => '300px'}
           / MH 4/24/13 - Displays each attachment(picture) in the attachments field of trip (CarrierWave)
 %br
 %br

@@ -25,7 +25,7 @@
   / MH 4/24/13 Displays File upload menu for CarrierWave
   %br
   = f.fields_for :attachments do |attachment_form|  
-    = image_tag(attachment_form.object.file.url) if attachment_form.object.file?
+    = image_tag(attachment_form.object.file.url, :width => '300px') if attachment_form.object.file?
     = attachment_form.label :file 
     = attachment_form.file_field :file 
     = attachment_form.link_to_remove "Remove this attachment" 

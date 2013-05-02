@@ -1,14 +1,15 @@
 / MH 3/24/13 Create brand new river -- reuse default CRUD details template 'form' for DRYness
 
 %h1 Create New river
+= render :partial => 'form'
 
-= form_tag rivers_path do
-	= render 'form'
-	%br
-	%br
-	= submit_tag 'Create New River'
-%br
-%br
+/ = form_tag rivers_path do
+/ 	= render 'form'
+/ 	%br
+/ 	%br
+/ 	= submit_tag 'Create New River'
+/ %br
+/ %br
 = link_to 'Back', rivers_path
 
 

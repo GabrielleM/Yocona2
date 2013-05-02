@@ -7,21 +7,23 @@
         %span.icon-bar
         %span.icon-bar
       %a.brand{:href => "/"}
-        yocona
+        %img{:alt=>"Logo", :height=>65, :width=>150, :src=>"/assets/logo_brown.png", :id=>"logo"}
         %br
-        %span{:style => "font-size: small;"} planning river adventures
+        / %span{:style => "font-size: small;"} planning river adventures
       .nav-collapse.collapse
         %ul.nav
           %li
-            = link_to 'Search', search_path
+            = link_to 'Search Trips', search_path
           %li
-            = link_to 'Browse', browse_path
+            = link_to 'Browse Trips', browse_path
           / MH 3/24/13 Because every trip -- even a brand new one -- needs to be associated with a river, 
           / We associated the unsaved trip in Create Trip with the default river (1st river in Rivers table)
           %li
             = link_to 'Create Trip', new_river_trip_path(TripsController.default_river_index)
           %li
             = link_to 'Create River', new_river_path
+          %li
+            = link_to 'All Rivers', rivers_path
 
           / %li.dropdown
           /   %a.dropdown2
@@ -30,8 +32,36 @@
           /     %ul.dropdown-menu
           /       %li
           /         = link_to 'Create River', new_river_path
-        %form.navbar-form.pull-right
-          %input.span2{:placeholder => "Email", :type => "text"}/
-          %input.span2{:placeholder => "Password", :type => "password"}/
-          %button.btn{:type => "submit"} Sign in
+          /       %li
+          /         = link_to 'Browse Rivers', rivers_path
+
+          / %li.dropdown
+          /   %a.dropdown2
+          /     Rivers
+          /     %b.caret
+          /     %ul.dropdown-menu
+          /       %li
+          /         = link_to 'Create Trip', new_river_trip_path(TripsController.default_river_index)
+          /       %li
+          /       = link_to 'Browse Trips', browse_path
+          /       %li
+          /       = link_to 'Search Trips', search_path
+       
+        - if user_signed_in?
+          = link_to "Sign out", destroy_user_session_path, :class => "btn navbar-search pull-right"
+        - else
+          = link_to "Sign in", new_user_session_path, :class => "btn navbar-search pull-right"
+
+        / = form_tag new_user_session_path, :class => "navbar-search pull-right", :method => :get do
+        / / %form.navbar-form.pull-right
+        /   %input.span2{:placeholder => "Email", :type => "text"}/
+        /   %input.span2{:placeholder => "Password", :type => "password"}/
+        /   %button.btn{:type => "submit"} Sign in
+
+
+/  <% unless user_signed_in? -%>
+/    <li><%= link_to "Sign in", new_user_session_path %></li>
+/  <% else -%>
+/    <li><%= link_to "Sign out", destroy_user_session_path %></li>
+/  <% end -%>
 

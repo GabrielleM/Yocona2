@@ -15,7 +15,7 @@ Yocona2::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-    config.assets.compile = true #changed from false - fixed "We're sorry, but something went wrong" Heroku error due to not precompiling static assets - MH 3/24
+  config.assets.compile = true #changed from false - fixed "We're sorry, but something went wrong" Heroku error due to not precompiling static assets - MH 3/24
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -61,8 +61,9 @@ Yocona2::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'example.com' }
+  
   # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'example.com' }
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
