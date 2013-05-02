@@ -7,7 +7,7 @@
 class TripsController < ApplicationController
 
   # MH 4/30/13 Devise allows non-authenticated users to only access show and index CRUD actions
-  before_filter :authenticate_user!, :except => [:show, :index, :browse, :search_results, :search, :landing]  
+  before_filter :authenticate_user!, :except => [:show, :index, :browse, :search_results, :search, :landing, :about]  
 
 # MH 3/24/13 -- Retrieve the first river in the Rivers table as a stand-in river while a trip not associated with any river
 # has a river added to it by the user during the Create action 
@@ -197,6 +197,12 @@ class TripsController < ApplicationController
 
     # if params[:river_name]
       # "river_name"=>"All", "leader"=>"Buck", "flow"=>"All"
+
+  end 
+
+#MH 5/1/13 -- About Yocona Org Page
+  def about
+
 
   end 
   

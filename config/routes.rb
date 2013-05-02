@@ -16,6 +16,7 @@ match '/search_results' => 'trips#search_results'
 # MH 3/24/13 - Create routes for search and browse pages -- will need to be modified for river>trip nested routing changes 
   match '/search' => 'trips#search'
   match '/browse' => 'trips#browse'
+  match '/about' => 'trips#about'
   # match "/patients/:id" => "patients#show"
 
 
