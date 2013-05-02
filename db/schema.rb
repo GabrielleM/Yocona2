@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502062010) do
+ActiveRecord::Schema.define(:version => 20130502065616) do
 
   create_table "attachments", :force => true do |t|
     t.text     "description"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130502062010) do
     t.text     "local_contacts"
     t.text     "nearest_store"
     t.text     "map"
+    t.string   "image"
   end
 
   create_table "roles", :force => true do |t|
