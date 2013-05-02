@@ -2,26 +2,6 @@
 # prevent the routes to any trip/trips from failing the first time the client uses the page, due to 
 # nested associations of resources 
 rivers = [
-<<<<<<< HEAD
-			{:name => 'Big River', :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' },
-			
-			{:name => 'South Fork of the American, Chili Bar', :length => '10 miles', :difficulty => 'class 3+', :ideal_flow => '1500-2500cfs', :hazards => '', :highlights => 'Meatgrinder and Troublemaker rapids', :nearest_town => 'Coloma', :description => 'fun class 3, dam release, very popular commercial run', :link => 'http://cacreeks.com/amer-sf.htm', :environmental_ed=>'', :on_river_special_concerns=> '', :emergency_plan=>'', :shuttle_directions => 'http://www.icorafting.org/main/tripleader/south-fork-american', :camping_locations => 'Camp Lotus', :local_contacts=> '', :nearest_store=> '', :map => ''},
-
-			{:name => 'South Fork of the American, Gorge', :length => '10 miles', :difficulty => 'class 3+', :ideal_flow => '1500-2500cfs', :highlights => "Satan's Cesspool, Hospital Bar, Jumping Rock" , :nearest_town => 'Coloma', :description => 'fun class 3, dam release, very popular commercial run', :link => 'http://cacreeks.com/amer-sf.htm', :shuttle_directions => 'http://www.icorafting.org/main/tripleader/south-fork-american', :camping_locations => 'Camp Lotus' },
-			
-			{:name => 'Kings', :length => 'Medium', :difficulty => 'Class 3', :ideal_flow => '1000-1200 CFS', :nearest_town => 'Piedra', :link => 'http://www.californiawhitewater.com/rivers/kings/',:camping_locations => 'Kirch Flat campground, Garnet Dike campground'}
-			]
-
-=begin
-trips = [
-
-			{:leader=> "Natasha Abeygunawardena", :agency=> "Cameron House", :agency_contact=> "", :num_participants=> '25', :num_guides=> '14', :flow=> "1400 cfs", :start_date=> "2012-07-14 00:00:00", :duration=> '1'}, 
-
- 			{:leader=> "Bill Weinberg", :agency=> "7 Tepees", :agency_contact=> "",:num_participants=> '18', :num_guides=> '10', :flow=> "1500 cfs", :start_date=> "2012-06-16 00:00:00", :duration=> '2', :summary=> "" } 
-		 ]
-
-=end
-=======
 			{ :name => 'Big River', 
 				:length => 'Medium', 
 				:difficulty => 'Intermediate', 
@@ -137,13 +117,15 @@ trips = [
 			}
 		 ]
 
->>>>>>> 83180d3ec9d870dd27883c31f3c41d395db95a5a
-
 rivers.each do |river|
   River.create!(river)
 end
 
-<<<<<<< HEAD
+
+
+
+
+
 gorge_id = 69
 gorge_id  = River.find_by_name("South Fork of the American, Gorge").id
 
@@ -154,11 +136,16 @@ trips = [
 			{:leader=> "Bill Weinberg", :agency=> "7 Tepees", :agency_contact=> "",:num_participants=> '18', :num_guides=> '10', :flow=> "1500 cfs", :start_date=> "2012-06-16 00:00:00", :duration=> '2', :summary=> "", :river_id=> gorge_id}
 		]
 
+
+
+
+
+
+
 trips.each do |trip|
   Trip.create!(trip)
 end
-=======
->>>>>>> 83180d3ec9d870dd27883c31f3c41d395db95a5a
+
 
 
 
