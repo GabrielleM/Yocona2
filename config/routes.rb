@@ -1,4 +1,6 @@
 Yocona2::Application.routes.draw do
+  devise_for :admins
+
   # resources :trips, :rivers
 
 # MH 3/24/13 - Create nested resource route mappings and associations 
