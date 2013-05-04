@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502065616) do
+ActiveRecord::Schema.define(:version => 20130503020856) do
+
+  create_table "admins", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
+  add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
   create_table "attachments", :force => true do |t|
     t.text     "description"
@@ -59,8 +77,8 @@ ActiveRecord::Schema.define(:version => 20130502065616) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "trips", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.string   "leader"
     t.string   "agency"
     t.string   "agency_contact"
@@ -71,8 +89,13 @@ ActiveRecord::Schema.define(:version => 20130502065616) do
     t.datetime "start_date"
     t.integer  "duration"
     t.text     "summary"
-    t.text     "pictures"
     t.integer  "river_id"
+    t.string   "pictures_file_name"
+    t.string   "pictures_content_type"
+    t.integer  "pictures_file_size"
+    t.datetime "pictures_updated_at"
+    t.string   "cover_image_uid"
+    t.string   "cover_image_name"
     t.string   "image"
   end
 
