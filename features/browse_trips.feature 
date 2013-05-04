@@ -17,12 +17,3 @@ Background: Trips and rivers are in the database
   	| Natasha Abeygunawardena | Cameron House | person to call | 2012 | 7 | 14 | 1 | 1500 cfs | 25 | 14 | tripreport.com | here's what happened | fun.jpg | 9999 |
 
 
-Scenario: show user a list of trips filtered by category
-    Given I am on the landing page
-    And I follow "Browse"
-    And I press ""
-    And I press "Create"
-    When I follow "Edit"
-    And I fill in "Leader" with "cba"
-    And I press "Update Trip"
-    Then I should see "Trip was successfully updated."

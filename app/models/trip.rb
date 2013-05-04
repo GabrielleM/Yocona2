@@ -37,7 +37,7 @@ class Trip < ActiveRecord::Base
   #MH 4/23/13 Code for Multiple photo upload in CarrierWave
   has_many :attachments, :as => :attachable
   accepts_nested_attributes_for :attachments, :allow_destroy => true
-
+  validates :start_date, :uniqueness => {:scope => :leader}
 
 end
 
