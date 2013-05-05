@@ -20,24 +20,24 @@ Background: rivers are in database
   Scenario: allow user to create a river
     Given I am on the landing page
     When I follow "Create River"
-    And I fill in "River Name" with "somename"
+    And I fill in "Name" with "somename"
     And I press "Create"
     Then I should see "River was successfully created."
   
   Scenario: allow user to update a river
     Given I am on the landing page
     And I follow "Create River"
-    And I fill in "River Name" with "abc"
+    And I fill in "Name" with "abc"
     And I press "Create"
     When I follow "Edit"
-    And I fill in "River Name" with "cba"
-    And I press "Update River Information"
+    And I fill in "Name" with "cba"
+    And I press "Update River"
     Then I should see "River was successfully updated."
   
   Scenario: allow user to destroy a river
     Given I am on the landing page
     And I follow "Create River"
-    And I fill in "River Name" with "coollongnamethatnoonewilltypeandwillnotbeinthedatabase"
+    And I fill in "Name" with "coollongnamethatnoonewilltypeandwillnotbeinthedatabase"
     And I delete the river entry
     Then I should see "Listing rivers"
     And I should not see "coollongnamethatnoonewilltypeandwillnotbeinthedatabase"

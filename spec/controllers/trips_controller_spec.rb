@@ -3,7 +3,11 @@ require 'spec_helper'
 
 RSpec.configure do |config|
   config.before(:each) do
+
+
     DatabaseCleaner.start
+    config.include Devise::TestHelpers, :type => :controller
+
     #ActiveRecord::Base.send(:attr_accessible, nil)
     begin
     River.create!({:name => 'Big River', :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' })
@@ -58,19 +62,19 @@ end
     describe "with valid params" do
       it "creates a new Trip" do
         expect {
-          post :create, valid_attributes, valid_session
+          post :create, valid_attributes
         }.to change(Trip, :count).by(1)
       end
 
       it "assigns a newly created trip as @trip" do
-        post :create, valid_attributes, valid_session
+        post :create, valid_attributes
         assigns(:trip).should be_a(Trip)
         assigns(:trip).should be_persisted
       end
 
 
       it "redirects to the created river" do
-        post :create, valid_attributes, valid_session
+        post :create, valid_attributes
        tmp = Trip.last[:id].to_s
         response.body.should =~ /.*#{Regexp.escape(tmp)}.*/  
       flash[:notice].should eql('Trip was successfully created.')

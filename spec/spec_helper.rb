@@ -13,6 +13,17 @@ require 'rspec/rails'
 require 'rspec/autorun'
 
 RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+
+ class TripsController < ApplicationController
+    skip_before_filter :authenticate_user!
+ end
+
+ class RiversController < ApplicationController
+    skip_before_filter :authenticate_user!
+ end
+
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -20,9 +31,7 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-
- config.order =
-  
+  #config.fail_fast = true
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
         DatabaseCleaner.start
@@ -30,6 +39,7 @@ RSpec.configure do |config|
 
   end
   config.before(:each) do
+    
     DatabaseCleaner.start
   end
   config.after(:each) do
