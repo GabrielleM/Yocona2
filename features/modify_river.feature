@@ -11,10 +11,10 @@ Background: rivers are in database
   Scenario: allow user to modify a river
     Given I am on the landing page
     And I follow "Create River"
-    And I fill in "River Name" with "zyx"
+    And I fill in "Name" with "zyx"
     And I press "Create"
     When I follow "Edit"
-    And I fill in "River Name" with "zyx"
-    And I press "Update River Information"
+    And I fill in "Name" with "zyx"
+    And I press "Update River"
     Then I should see "River was successfully updated."
   

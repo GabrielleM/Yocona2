@@ -11,7 +11,7 @@ Background: rivers are in database
   Scenario: allow user to destroy a river
     Given I am on the landing page
     And I follow "Create River"
-    And I fill in "River Name" with "testriver100000000"
+    And I fill in "Name" with "testriver100000000"
     And I delete the river entry
     Then I should see "Listing rivers"
     And I should not see "testriver100000000"

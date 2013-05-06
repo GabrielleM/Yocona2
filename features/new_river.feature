@@ -12,7 +12,7 @@ Background: rivers are in database
   Scenario: allow user make a new river
     Given I am on the landing page
     When I follow "Create River"
-    And I fill in "River Name" with "somename"
+    And I fill in "Name" with "somename"
     And I press "Create"
     Then I should see "River was successfully created."
   
