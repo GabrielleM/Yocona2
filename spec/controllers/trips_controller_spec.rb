@@ -57,6 +57,68 @@ end
 
 
 
+ describe "Search trips" do
+  render_views
+    it "when search term is found, valid params" do
+         post :create, valid_attributes
+       visit search_path
+
+fill_in 'trip[leader]', with: 'abc'
+click_link_or_button "Find Trip"
+      page.body.should =~ /abc/m
+
+    end
+
+    it "when search term is NOT found, INvalid params" do
+         post :create, valid_attributes
+       visit search_path
+
+fill_in 'trip[leader]', with: 'qqqqqqq'
+click_link_or_button "Find Trip"
+
+      page.body.should_not =~ /qqqqqqq/m
+
+    end
+
+  end
+
+
+
+ describe "BROWSE trips" do
+  render_views
+    it "when all browse terms are found, valid params" do
+
+         post :create, valid_attributes
+
+       visit browse_path
+      page.body.should =~ /Big River/m
+
+    end
+    it "when browse term is found, valid params" do
+
+         post :create, valid_attributes
+
+       visit("/browse?river_name=All&leader=abc&agency=All")
+
+      page.body.should =~ /abc/m
+      page.body.should =~ /2013/m
+
+    end
+    it "when browse term is NOT found, INvalid params" do
+        
+    River.create!({:name => 'River2', :length => 'Medium', :difficulty => 'Intermediate', :ideal_flow => 'Medium', :hazards => 'Raining chipmunks', :highlights => 'Raining chipmunks', :nearest_town => 'Nowhereville', :description => 'It\'s a big river', :link => 'www.link.com', :environmental_ed => 'Environmental Ed Notes of some sort', :on_river_special_concerns => 'None', :emergency_plan =>'Run for your life', :shuttle_directions => 'Follow the yellow brick road', :camping_locations => 'Right here', :local_contacts => 'Mr. Bigglesworth', :nearest_store => 'Chevron quikmart', :map => 'Here\'s a map' })
+         
+         post :create, valid_attributes
+
+       visit("/browse?river_name=River2&leader=All&agency=All")
+      page.body.should_not =~ /2013/m
+
+    end
+
+  end
+
+
+
   describe "POST create" do
 
     describe "with valid params" do
@@ -155,6 +217,8 @@ end
       }.to change(Trip, :count).by(-1)
     end
   end
+
+
 
  end
 
