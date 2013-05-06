@@ -11,9 +11,16 @@ Background: Trips and rivers are in the database
   | leader | agency | agency_contact | start_date(1i) | start_date(2i) | start_date(3i) | duration | flow | num_participants | num_guides | report_link | summary | pictures | river_id |
   | abc | a| trip | 2013 | 4 | 8 | 1 | a | a | a | a | a | a | 1 |
 
-  Scenario: search
+  Scenario: search for trip that is there HAPPY Path
 	When I go to the Yocona home page
 	And I follow "Search Trips"
     And I fill in "River Name" with "Big River"
     And I press "Find Trip"
     Then I should see "Big River"
+
+  Scenario: search for trip that is not there SAD Path
+  When I go to the Yocona home page
+  And I follow "Search Trips"
+    And I fill in "Trip Leader" with "oooo"
+    And I press "Find Trip"
+    Then I should not see "oooo"

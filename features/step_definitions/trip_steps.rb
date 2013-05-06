@@ -84,3 +84,15 @@ end
 Given(/^the database preconditions have been met$/) do
 initdb()
 end
+
+When(/^I am at the correct page$/) do
+  
+# puts page.body
+# print page.body
+#page.driver.browser.refresh
+# print current_path
+# puts current_path
+##{}"/browse?utf8=✓&river_name=Big+River&leader=All&agency=All"
+visit("/browse?river_name=River2&leader=All&agency=All")
+
+end
